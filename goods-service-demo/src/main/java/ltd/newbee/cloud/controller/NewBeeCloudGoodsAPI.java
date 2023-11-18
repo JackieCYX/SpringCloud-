@@ -1,6 +1,7 @@
 package ltd.newbee.cloud.controller;
 
 import ltd.newbee.cloud.entity.NewBeeGoodsInfo;
+import ltd.newbee.cloud.param.ComplexObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
@@ -77,5 +78,16 @@ public class NewBeeCloudGoodsAPI {
         }
 
         return newBeeGoodsInfo;
+    }
+
+    @PostMapping("/goods/testComplexObject")
+    public ComplexObject testComplexObject(@RequestBody ComplexObject complexObject) {
+
+        int requestNum = complexObject.getRequestNum();
+        requestNum -= 1;
+        complexObject.setRequestNum(requestNum);
+
+        // 由于字段过多，这里就用debug的方式来查看接收到的复杂对象参数
+        return complexObject;
     }
 }

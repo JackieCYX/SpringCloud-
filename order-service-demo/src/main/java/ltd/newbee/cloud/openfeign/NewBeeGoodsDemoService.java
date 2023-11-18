@@ -1,6 +1,7 @@
 package ltd.newbee.cloud.openfeign;
 
 import ltd.newbee.cloud.entity.NewBeeGoodsInfo;
+import ltd.newbee.cloud.param.ComplexObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,4 +24,7 @@ public interface NewBeeGoodsDemoService {
 
     @PostMapping("/updNewBeeGoodsInfo")
     NewBeeGoodsInfo updNewBeeGoodsInfo(@RequestBody NewBeeGoodsInfo newBeeGoodsInfo);
+
+    @PostMapping(value = "/testComplexObject")
+    ComplexObject testComplexObject(@RequestBody ComplexObject complexObject);
 }
