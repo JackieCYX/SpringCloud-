@@ -1,10 +1,9 @@
 package ltd.newbee.cloud.controller;
 
+import ltd.newbee.cloud.entity.NewBeeGoodsInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,5 +65,17 @@ public class NewBeeCloudGoodsAPI {
 
         // 接收参数为链表，返回信息给调用端亦为链表类型
         return goodsInfos;
+    }
+
+    @PostMapping("/goods/updNewBeeGoodsInfo")
+    public NewBeeGoodsInfo updNewBeeGoodsInfo(@RequestBody NewBeeGoodsInfo newBeeGoodsInfo) {
+        if (newBeeGoodsInfo.getGoodsId() > 0) {
+            int stock = newBeeGoodsInfo.getStock();
+            stock -= 1;
+            //库存减一
+            newBeeGoodsInfo.setStock(stock);
+        }
+
+        return newBeeGoodsInfo;
     }
 }
