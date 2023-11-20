@@ -25,6 +25,8 @@
         <module>order-service-demo</module>
         <module>goods-service-demo</module>
         <module>service-common</module>
+        <module>gateway-demo</module>
+        <module>gateway-demo2</module>
     </modules>
 
     <dependencyManagement>
