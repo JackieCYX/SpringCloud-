@@ -1,19 +1,32 @@
 server:
-  port: 8127
+  port: 8137
 spring:
+  application:
+    name: newbee-cloud-gateway-service
   cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:17748
+        username: nacos
+        password: nacos
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
-        - id: goods-demo-route
-          uri: http://localhost:8120
+        - id: goods-service-route
+          uri: lb://newbee-cloud-goods-service
           order: 1
           predicates:
-            - Path=/goods/**
-        - id: shopcart-demo-route
-          uri: http://localhost:8122
-          order: 1
+            - Path=/goods
+            - Query=goodsId,^\+?[1-9][0-9]*$
+        - id: goods-service-route2
+          uri: lb://newbee-cloud-goods-service
+          order: 0
           predicates:
-            - Path=/shop-cart/**
+            - Path=/goods/page/**
+            - Method=POST
 
 
 

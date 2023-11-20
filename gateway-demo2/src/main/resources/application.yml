@@ -1,5 +1,5 @@
 server:
-  port: 8129
+  port: 8139
 spring:
   application:
     name: newbee-cloud-gateway-service

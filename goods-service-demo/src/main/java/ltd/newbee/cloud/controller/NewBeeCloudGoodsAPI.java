@@ -102,7 +102,7 @@ public class NewBeeCloudGoodsAPI {
         return complexObject;
     }
 
-    @GetMapping("/goods/page/{pageNum}")
+    @PostMapping("/goods/page/{pageNum}")
     public String goodsList(@PathVariable("pageNum") int pageNum) {
         // 返回信息给调用端
         return  "请求goodsList，当前服务的端口号为" + applicationServerPort;
