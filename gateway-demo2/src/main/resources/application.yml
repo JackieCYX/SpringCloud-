@@ -20,6 +20,7 @@ spring:
           order: 1
           predicates:
             - Path=/goods/**
+            - GoodsId=10000,100000
         - id: shopcart-service-route
           uri: lb://newbee-cloud-shopcart-service
           order: 1
