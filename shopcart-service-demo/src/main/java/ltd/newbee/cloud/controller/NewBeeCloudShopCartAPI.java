@@ -21,4 +21,11 @@ public class NewBeeCloudShopCartAPI {
         // 返回信息给调用端
         return cartItem + "，当前服务的端口号为" + applicationServerPort;
     }
+
+    @GetMapping("/shop-cart/page/{pageNum}")
+    public String cartItemList(@PathVariable("pageNum") int pageNum) throws InterruptedException {
+        // 返回信息给调用端
+        return "请求cartItemList，当前服务的端口号为" + applicationServerPort;
+    }
+
 }

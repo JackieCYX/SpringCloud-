@@ -15,6 +15,17 @@ public class NewBeeCloudGoodsAPI {
     @Value("${server.port}")
     private String applicationServerPort;
 
+    @GetMapping("/goods")
+    public String goodsDetail(@RequestParam("goodsId") int goodsId) {
+        // 根据id查询商品并返回给调用端
+        if (goodsId < 1 || goodsId > 100000) {
+            return "查询商品为空，当前服务的端口号为" + applicationServerPort;
+        }
+        String goodsName = "商品" + goodsId;
+        // 返回信息给调用端
+        return goodsName + "，当前服务的端口号为" + applicationServerPort;
+    }
+
     @GetMapping("/goods/detail")
     //传递多个参数 参数都是URL参数
     public String goodsDetailByParams(@RequestParam("sellStatus") int sellStatus, @RequestParam("goodsId") int goodsId) {
@@ -89,5 +100,11 @@ public class NewBeeCloudGoodsAPI {
 
         // 由于字段过多，这里就用debug的方式来查看接收到的复杂对象参数
         return complexObject;
+    }
+
+    @GetMapping("/goods/page/{pageNum}")
+    public String goodsList(@PathVariable("pageNum") int pageNum) {
+        // 返回信息给调用端
+        return  "请求goodsList，当前服务的端口号为" + applicationServerPort;
     }
 }

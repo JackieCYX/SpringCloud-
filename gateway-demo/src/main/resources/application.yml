@@ -1,0 +1,19 @@
+server:
+  port: 8127
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: goods-demo-route
+          uri: http://localhost:8120
+          order: 1
+          predicates:
+            - Path=/goods/**
+        - id: shopcart-demo-route
+          uri: http://localhost:8122
+          order: 1
+          predicates:
+            - Path=/shop-cart/**
+
+
+
