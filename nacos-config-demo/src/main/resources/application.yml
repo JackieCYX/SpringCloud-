@@ -1,0 +1,28 @@
+server:
+  port: 8094
+spring:
+  profiles:
+    active: dev
+  application:
+    name: newbee-cloud-config-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:17748
+        username: nacos
+        password: nacos
+  datasource:
+    name: newbee-mall-cloud-user-datasource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newbee_mall_cloud_user_db?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 60000
+      pool-name: hikariCP
+      max-lifetime: 600000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
