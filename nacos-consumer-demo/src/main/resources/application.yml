@@ -1,0 +1,11 @@
+server:
+  port: 8093
+spring:
+  application:
+    name: newbee-cloud-consumer-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:17748
+        username: nacos
+        password: nacos

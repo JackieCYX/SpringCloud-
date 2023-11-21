@@ -14,6 +14,7 @@
         <module>service-demo</module>
         <module>service-demo2</module>
         <module>nacos-provider-demo</module>
+        <module>nacos-consumer-demo</module>
     </modules>
 
     <properties>
