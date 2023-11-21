@@ -10,24 +10,19 @@
     <packaging>pom</packaging>
     <description>spring-cloud-alibaba-multi-service-demo</description>
 
+    <modules>
+        <module>service-demo</module>
+        <module>service-demo2</module>
+    </modules>
+
     <properties>
         <spring.boot.version>2.6.3</spring.boot.version>
         <spring.cloud.dependencies.version>2021.0.1</spring.cloud.dependencies.version>
         <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
         <java.version>1.8</java.version>
-        <lombok.version>1.18.28</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-
-    <modules>
-        <module>shopcart-service-demo</module>
-        <module>order-service-demo</module>
-        <module>goods-service-demo</module>
-        <module>service-common</module>
-        <module>gateway-demo</module>
-        <module>gateway-demo2</module>
-    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -65,12 +60,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
