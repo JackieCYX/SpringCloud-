@@ -11,10 +11,7 @@
     <description>spring-cloud-alibaba-multi-service-demo</description>
 
     <modules>
-        <module>service-demo</module>
-        <module>service-demo2</module>
         <module>nacos-config-demo</module>
-        <module>nacos-consumer-demo</module>
     </modules>
 
     <properties>

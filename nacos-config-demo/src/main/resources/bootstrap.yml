@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: newbee-cloud-config-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:17748
+        namespace: dev
+        group: NEWBEE_CLOUD_DEV_GROUP
+        file-extension: yml
+        username: nacos
+        password: nacos
