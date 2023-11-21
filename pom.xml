@@ -13,6 +13,7 @@
     <modules>
         <module>service-demo</module>
         <module>service-demo2</module>
+        <module>nacos-provider-demo</module>
     </modules>
 
     <properties>
