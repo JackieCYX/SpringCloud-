@@ -12,3 +12,10 @@ spring:
         file-extension: yml
         username: nacos
         password: nacos
+        extension-configs:
+          - data-id: switch-config.yml
+            group: COMMON_GROUP
+            refresh: true
+          - data-id: redis-config.yml
+            group: COMMON_GROUP
+            refresh: true
