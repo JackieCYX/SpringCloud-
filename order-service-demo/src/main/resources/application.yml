@@ -1,7 +1,19 @@
 server:
-  port: 8093
+  port: 8157
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 5000
 
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_distribution_order_db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
   application:
     name: newbee-cloud-order-service
   cloud:
