@@ -101,11 +101,11 @@ public class NewBeeCloudGoodsAPI {
         // 减库存操作
         int result = jdbcTemplate.update("update tb_goods set goods_stock=goods_stock-1 where goods_id=" + goodsId);
         // 模拟网络波动问题
-        try {
-            Thread.sleep(10 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10 * 1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         if (result > 0) {
             return true;
         }

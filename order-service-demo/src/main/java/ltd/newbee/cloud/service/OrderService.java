@@ -38,6 +38,8 @@ public class OrderService {
         if (goodsResult && cartResult) {
             // 向订单表中新增一条记录
             int orderResult = jdbcTemplate.update("insert into tb_order(`cart_id`) value (\"" + cartId + "\")");
+            // 此处出现了异常
+            int i = 1/0;
             if (orderResult > 0) {
                 return true;
             }
