@@ -1,5 +1,6 @@
 package ltd.newbee.cloud.service;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import ltd.newbee.cloud.openfeign.NewBeeGoodsDemoService;
 import ltd.newbee.cloud.openfeign.NewBeeShopCartDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class OrderService {
     private NewBeeShopCartDemoService newBeeShopCartDemoService;
 
     @Transactional
+    @GlobalTransactional
     public Boolean saveOrder(int cartId) {
         // 简单的模拟下单流程，包括服务间的调用流程。
 
@@ -39,7 +41,7 @@ public class OrderService {
             // 向订单表中新增一条记录
             int orderResult = jdbcTemplate.update("insert into tb_order(`cart_id`) value (\"" + cartId + "\")");
             // 此处出现了异常
-            int i = 1/0;
+            int i = 1 / 0;
             if (orderResult > 0) {
                 return true;
             }

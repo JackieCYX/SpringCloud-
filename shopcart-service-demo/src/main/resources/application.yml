@@ -1,5 +1,5 @@
 server:
-  port: 8154
+  port: 8167
 
 spring:
   datasource:
@@ -15,3 +15,21 @@ spring:
         server-addr: localhost:17748
         username: nacos
         password: nacos
+seata:
+  enabled: true
+  # 三个不同的服务命名为不同的名称
+  application-id: shopcart-server
+  # 事务分组配置
+  tx-service-group: test_save_order_group
+  service:
+    vgroup-mapping:
+      test_save_order_group: default
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: localhost:17748
+      username: nacos
+      password: nacos
+      group: DEFAULT_GROUP
+      cluster: default
