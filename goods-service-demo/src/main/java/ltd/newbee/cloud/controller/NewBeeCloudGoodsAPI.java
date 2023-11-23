@@ -13,6 +13,16 @@ public class NewBeeCloudGoodsAPI {
 
     @GetMapping("/goods/{goodsId}")
     public String goodsDetail(@PathVariable("goodsId") int goodsId) {
+        // 模拟超时
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //  模拟异常
+        // int i = 13 / 0;
+
         // 根据id查询商品并返回给调用端
         if (goodsId < 1 || goodsId > 100000) {
             return "查询商品为空，当前服务的端口号为" + applicationServerPort;
