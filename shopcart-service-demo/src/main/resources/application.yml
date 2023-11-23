@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8185
 
 spring:
   application:
@@ -10,3 +10,9 @@ spring:
         server-addr: localhost:17748
         username: nacos
         password: nacos
+    sentinel:
+      transport:
+        # 默认为8719，作用：启动一个HTTP客户端服务，该服务将于Sentinel控制台进行数据交互。如果该端口被占用，则从8719依次+1扫描
+        port: 8719
+        # 指定Sentinel控制台地址
+        dashboard: 127.0.0.1:9113

@@ -2,10 +2,11 @@ package ltd.newbee.cloud.controller;
 
 import ltd.newbee.cloud.openfeign.NewBeeGoodsDemoService;
 import ltd.newbee.cloud.openfeign.NewBeeShopCartDemoService;
+import ltd.newbee.cloud.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
@@ -16,6 +17,8 @@ public class NewBeeCloudOrderAPI {
     private NewBeeGoodsDemoService newBeeGoodsDemoService;
     @Resource
     private NewBeeShopCartDemoService newBeeShopCartDemoService;
+    @Autowired
+    private OrderService orderService;
 
 
     @GetMapping("/order/saveOrder")
@@ -30,5 +33,43 @@ public class NewBeeCloudOrderAPI {
         // 执行下单逻辑
 
         return "success! goodsResult={" + goodsResult + "},cartResult={" + cartResult + "}";
+    }
+
+    @GetMapping("/testChainApi1")
+    public String testChainApi1() {
+        String result = orderService.getNumber(2022);
+        if ("BLOCKED".equals(result)){
+            return "testChainApi1 error! "+result;
+        }
+        return "testChainApi1 success! "+result;
+    }
+
+    @GetMapping("/order/testChainApi2")
+    public String testChainApi2() {
+        String result = orderService.getNumber(2025);
+        if ("BLOCKED".equals(result)){
+            return "testChainApi2 error! "+result;
+        }
+        return "testChainApi2 success! "+result;
+    }
+
+    @GetMapping("/order/testRelateApi1")
+    public String testRelateApi1() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            return "testRelateApi1 error!";
+        }
+        return "testRelateApi1 success!";
+    }
+
+    @GetMapping("/order/testRelateApi2")
+    public String testRelateApi2() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            return "testRelateApi2 error!";
+        }
+        return "testRelateApi2 success!";
     }
 }
