@@ -10,3 +10,6 @@ spring:
         server-addr: localhost:17748
         username: nacos
         password: nacos
+logging:
+  level:
+    ltd.newbee.cloud.openfeign: debug
